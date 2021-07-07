@@ -70,6 +70,9 @@
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
             </div>
+            
+            <br/>
+
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="IsAuthorizedCompany"></label>
@@ -78,14 +81,17 @@
                     <input type="checkbox" asp-for="IsAuthorizedCompany" class="form-control" />
                 </div>
             </div>
+            <br />
+
+           
             <div class="form-group row">
                 <div class="col-8 offset-4">
                     @if (Model.Id != 0)
                     {
-                        <partial name="_EditAndBackToListButton" model="Model.Id" /> }
-                    else
-                    {
-                        <partial name="_CreateAndBackToListButton" />}
+        <partial name="_EditAndBackToListButton" model="Model.Id" /> }
+    else
+    {
+        <partial name="_CreateAndBackToListButton" />}
                 </div>
             </div>
         </div>
