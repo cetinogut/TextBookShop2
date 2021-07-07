@@ -49,8 +49,8 @@ function loadDataTable() {
 
 function Delete(url) {
     swal({
-        title: "Are you sure you want to Delete?",
-        text: "You will not be able to restore the data!",
+        title: "Silmek istediğinizden emin misiniz??",
+        text: "Silme sonrası verinizi geri getiremeyebilirsiniz!!!",
         icon: "warning",
         buttons: true,
         dangerMode: true

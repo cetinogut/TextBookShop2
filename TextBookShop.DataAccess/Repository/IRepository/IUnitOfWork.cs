@@ -9,7 +9,7 @@ namespace TextBookShop.DataAccess.Repository.IRepository
         ICategoryRepository Category { get; }
         ICourseTypeRepository CourseType { get; }
         IProductRepository Product { get; }
-        //ICompanyRepository Company { get; }
+        ICompanyRepository Company { get; }
         //IApplicationUserRepository ApplicationUser { get; }
         ISP_Call SP_Call { get; }
         //IShoppingCartRepository ShoppingCart { get; }

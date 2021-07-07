@@ -25,12 +25,7 @@
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">AnaSayfa</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
-                        </li>
-                        <li class="nav-item">
 
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 İçerik Yönetimi
@@ -44,6 +39,19 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kullanıcı Yönetimi
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Distribütörler</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Kullanıcılar</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                
+                            </div>
+                        </li>
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

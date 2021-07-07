@@ -10,11 +10,11 @@ namespace TextBookShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     //[Authorize(Roles = SD.Role_Admin)]
-    public class CourseTypeController : Controller
+    public class CompanyController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public CourseTypeController(IUnitOfWork unitOfWork)
+        public CompanyController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
            
@@ -27,63 +27,63 @@ namespace TextBookShop.Areas.Admin.Controllers
 
         //public async Task<IActionResult> Index(int productPage = 1)
         //{
-        //    CourseTypeVM courseTypeVM = new CourseTypeVM()
+        //    CompanyVM companyVM = new CompanyVM()
         //    {
-        //        Categories = await _unitOfWork.CourseType.GetAllAsync()
+        //        Categories = await _unitOfWork.Company.GetAllAsync()
         //    };
 
-        //    var count = courseTypeVM.Categories.Count();
-        //    courseTypeVM.Categories = courseTypeVM.Categories.OrderBy(p => p.Name)
+        //    var count = companyVM.Categories.Count();
+        //    companyVM.Categories = companyVM.Categories.OrderBy(p => p.Name)
         //        .Skip((productPage - 1) * 2).Take(2).ToList();
 
-        //    courseTypeVM.PagingInfo = new PagingInfo
+        //    companyVM.PagingInfo = new PagingInfo
         //    {
         //        CurrentPage = productPage,
         //        ItemsPerPage = 2,
         //        TotalItem = count,
-        //        urlParam = "/Admin/CourseType/Index?productPage=:"
+        //        urlParam = "/Admin/Company/Index?productPage=:"
         //    };
 
-        //    return View(courseTypeVM);
+        //    return View(companyVM);
         //}
 
         public IActionResult Upsert(int? id)
         {
-            CourseType courseType = new CourseType();
+            Company company = new Company();
             if (id == null)
             {
                 //this is for create
-                return View(courseType);
+                return View(company);
             }
             //this is for edit
-            courseType = _unitOfWork.CourseType.Get(id.GetValueOrDefault());
-            if (courseType == null)
+            company = _unitOfWork.Company.Get(id.GetValueOrDefault());
+            if (company == null)
             {
                 return NotFound();
             }
-            return View(courseType);
+            return View(company);
 
          }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(CourseType courseType)
+        public IActionResult Upsert(Company company)
         {
             if (ModelState.IsValid)
             {
-                if (courseType.Id == 0)
+                if (company.Id == 0)
                 {
-                     _unitOfWork.CourseType.Add(courseType);
+                     _unitOfWork.Company.Add(company);
 
                 }
                 else
                 {
-                    _unitOfWork.CourseType.Update(courseType);
+                    _unitOfWork.Company.Update(company);
                 }
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index)); // name of index action
             }
-            return View(courseType);
+            return View(company);
         }
 
 
@@ -92,24 +92,24 @@ namespace TextBookShop.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var allObj =  _unitOfWork.CourseType.GetAll();
+            var allObj =  _unitOfWork.Company.GetAll();
             return Json(new { data = allObj });
         }
 
         [HttpDelete]
         public  IActionResult Delete(int id)
         {
-            var objFromDb =  _unitOfWork.CourseType.Get(id);
+            var objFromDb =  _unitOfWork.Company.Get(id);
             if (objFromDb == null)
             {
-                TempData["Error"] = "Sınav Tipi Silinirken Hata...";
+                TempData["Error"] = "Distribütör Silinirken Hata...";
                 return Json(new { success = false, message = "silme işlemi sırasında hata oluştu" });
             }
 
-             _unitOfWork.CourseType.Remove(objFromDb);
+             _unitOfWork.Company.Remove(objFromDb);
             _unitOfWork.Save();
 
-            TempData["Success"] = "Sınav Tipi başarıyla silindi";
+            TempData["Success"] = "Distribütör başarıyla silindi";
             return Json(new { success = true, message = "Silme işlemi başarılı..." });
 
         }

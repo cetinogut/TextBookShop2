@@ -14,8 +14,10 @@ namespace TextBookShop.DataAccess.Data
         {
         }
 
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CourseType> CourseTypes { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Company> Companies { get; set; }
     }
 }
