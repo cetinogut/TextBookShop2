@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBookShop", "TextBookShop\TextBookShop.csproj", "{98372002-6704-4E3C-A38B-675B31B4E546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextBookShop", "TextBookShop\TextBookShop.csproj", "{98372002-6704-4E3C-A38B-675B31B4E546}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBookShop.DataAccess", "TextBookShop.DataAccess\TextBookShop.DataAccess.csproj", "{B03587F0-A118-4339-B0DE-FA4E8E639BD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextBookShop.DataAccess", "TextBookShop.DataAccess\TextBookShop.DataAccess.csproj", "{B03587F0-A118-4339-B0DE-FA4E8E639BD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBookShop.Models", "TextBookShop.Models\TextBookShop.Models.csproj", "{3201E8DB-7423-42E7-8EF2-54CEDF68C634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextBookShop.Models", "TextBookShop.Models\TextBookShop.Models.csproj", "{3201E8DB-7423-42E7-8EF2-54CEDF68C634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBookShop.Utilities", "TextBookShop.Utilities\TextBookShop.Utilities.csproj", "{3A69CEA6-D456-4F45-A3D3-779BA6556BDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextBookShop.Utilities", "TextBookShop.Utilities\TextBookShop.Utilities.csproj", "{3A69CEA6-D456-4F45-A3D3-779BA6556BDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B67DDAD-306F-420D-85F9-CA325BE0A2DB}"
+	ProjectSection(SolutionItems) = preProject
+		readMeCo.txt = readMeCo.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

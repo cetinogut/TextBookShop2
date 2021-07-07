@@ -22,6 +22,7 @@ namespace TextBookShop.Models
         public string State { get; set; }
         [Display(Name = "Posta Kodu")]
         public string PostalCode { get; set; }
+       
 
         public int? CompanyId { get; set; }
 
