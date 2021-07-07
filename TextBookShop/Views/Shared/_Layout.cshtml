@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using TextBookShop.Utilities
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,20 +26,26 @@
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">AnaSayfa</a>
                         </li>
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                İçerik Yönetimi
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="CourseType" asp-action="Index">Sınav Tipi</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Kitap Türü</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Test Kitapları</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    İçerik Yönetimi
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="CourseType" asp-action="Index">Sınav Tipi</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Kitap Türü</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Test Kitapları</a>
+
+                                </div>
+                            </li>
+                          }
+
+                        @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
+                        {
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,11 +53,12 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Distribütörler</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Kullanıcılar</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Kullanıcılar</a>
                                 <a class="dropdown-item" href="#">Another action</a>
-                                
+
                             </div>
                         </li>
+                        }
 
                     </ul>
                     <partial name="_LoginPartial" />
@@ -68,12 +76,12 @@
         <div class="container">
             &copy; @System.DateTime.Now.Year - TextBookShop - <a asp-area="" asp-controller="Home" asp-action="Privacy" style="color:wheat; text-decoration:none">Privacy</a>
         </div>
-        
-            
-            @*<div class="col-md-6 text-right">
+
+
+        @*<div class="col-md-6 text-right">
                 @await Html.PartialAsync("_SelectLanguagePartial")
             </div>*@
-        
+
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
