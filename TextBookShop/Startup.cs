@@ -48,6 +48,12 @@ namespace TextBookShop
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "678210022902-5ru3oektpr0mj8enfgh9tcoth2716ncn.apps.googleusercontent.com";
+                options.ClientSecret = "dzu9jYWymCG4kB6xXonUwV7_";
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
