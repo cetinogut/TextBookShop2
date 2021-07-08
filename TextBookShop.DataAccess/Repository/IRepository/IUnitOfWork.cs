@@ -10,11 +10,9 @@ namespace TextBookShop.DataAccess.Repository.IRepository
         ICourseTypeRepository CourseType { get; }
         IProductRepository Product { get; }
         ICompanyRepository Company { get; }
-        //IApplicationUserRepository ApplicationUser { get; }
+        
         ISP_Call SP_Call { get; }
-        //IShoppingCartRepository ShoppingCart { get; }
-        //IOrderHeaderRepository OrderHeader { get; }
-        //IOrderDetailsRepository OrderDetails { get; }
+        
 
         void Save();
     }
