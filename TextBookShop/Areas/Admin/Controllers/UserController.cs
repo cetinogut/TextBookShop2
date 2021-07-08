@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using TextBookShop.DataAccess.Data;
 using TextBookShop.Models;
@@ -49,8 +50,21 @@ namespace TextBookShop.Areas.Admin.Controllers
                     };
                 }
             }
-
             return Json(new { data = userList });
+
+            //TO DO : do not show the admins in the user list if the current user is employee
+
+            /*var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (User.IsInRole(SD.Role_Employee))
+            {
+
+            }
+            return Json(new { success = true, message = "Operation Successful." });*/
+
+
+
         }
 
         [HttpPost]

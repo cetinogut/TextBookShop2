@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<TextBookShop.Models.Product>
-
+@using TextBookShop.Utilities
 <div class="row pb-3 backgroundWhite">
 
     @foreach (var product in Model)
@@ -14,11 +14,43 @@
                     <p class="card-title text-primary"><b>@product.Author</b> Yayınları</p>
                 </div>
                 <div style="padding-left:5px;">
-                    <p>List Price: <strike><b class="">@product.ListPrice.ToString("0.00") &#8378</b></strike></p>
+                    <p>Liste Fiyatı: <strike><b class="">@product.ListPrice.ToString("0.00") &#8378</b></strike></p>
                 </div>
+
+                @if (!(User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_User_Indi) || User.IsInRole(SD.Role_User_Comp)))
+                {
+                    <div style="padding-left:5px;">
+                        <p style="color: maroon; background-color: yellow">İnanılmaz indirimler için <a asp-area="Identity" asp-page="/Account/Register">Üye</a> olun</p>
+                    </div>
+                }
+
+
+                @if (User.IsInRole(SD.Role_User_Indi))
+                {
                 <div style="padding-left:5px;">
-                    <p style="color:maroon">İndirimli: <b class="">@product.Price100.ToString("0.00") &#8378</b></p>
+                    <p style="color:maroon">İndirimli: <b class="">@product.Price30.ToString("0.00") &#8378</b></p>
                 </div>
+            
+                }
+
+                @if (User.IsInRole(SD.Role_User_Comp))
+                {
+                    <div style="padding-left:5px;">
+                        <p style="color:maroon">İndirimli: <b class="">@product.Price100.ToString("0.00") &#8378</b></p>
+                    </div>
+                }
+
+
+                @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
+                {
+                    <div style="padding-left:5px;">
+                        <p style="color:maroon">İndirimli (30+): <b class="">@product.Price30.ToString("0.00") &#8378</b></p>
+                    </div>
+
+                    <div style="padding-left:5px;">
+                        <p style="color:maroon">İndirimli (100+): <b class="">@product.Price100.ToString("0.00") &#8378</b></p>
+                    </div>
+                }
             </div>
             <div>
                 <a asp-action="Details" class="btn btn-primary form-control" asp-route-id="@product.Id">İncele</a>
